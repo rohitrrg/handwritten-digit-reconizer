@@ -3,4 +3,3 @@ gunicorn
 numpy
 opencv-contrib-python-headless
 pandas
-pickle==4.0
