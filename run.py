@@ -5,8 +5,12 @@ import cv2
 import numpy as np
 import base64
 import matplotlib.pyplot as plt
+import pickle
 
 init_Base64 = 21
+
+with open('model_pkl', 'rb') as f:
+    model = pickle.load(f)
 
 app = Flask(__name__)
 
@@ -25,9 +29,11 @@ def predict():
         resized = cv2.resize(image, (28,28), interpolation = cv2.INTER_AREA)
         vect = np.asarray(resized, dtype="uint8")
         plt.imshow(vect, cmap='gray')
-        plt.savefig('static/new_plot.png')
+        plt.savefig('static/plot.png')
+        vect = vect.reshape(1,784)
+        result = model.predict(vect)
 
-    return render_template('index.html', name='new_plot', url ='/static/new_plot.png')
+    return render_template('index.html', name='new_plot', url ='/static/plot.png', result = result[0])
 
 if __name__=="__main__":
     app.run(port="8000", debug=True)

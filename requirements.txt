@@ -4,3 +4,4 @@ numpy
 opencv-contrib-python-headless
 pandas
 matplotlib
+os

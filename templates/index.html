@@ -19,7 +19,7 @@
       <div style="display: flex; vertical-align: middle; justify-content: center; margin-top: 20px;">
         <input type="hidden" id = 'url' name="url" value="">
         <input id="clr" value="Clear" type="button" onclick="erase()" style="width: 100px; margin-right: 10px;">
-        <input type="submit" id = 'predict' value="Predict" onclick="return save();" style="width: 100px; margin-left: 10px;">
+        <input type="submit" id = 'predict' value="Predict" onclick="return save(); " style="width: 100px; margin-left: 10px;">
       </div>
     </form>
 
@@ -32,7 +32,7 @@
         dot_flag = false;
 
     var x = "#FF5733",
-        y = 7;
+        y = 10;
     
     function init() {
         canvas = document.getElementById('can');
@@ -115,8 +115,18 @@ function save() {
     }
     </script>
 
-    <div>
-      <img src={{ url}} alt="Chart" height="274" width="274" style="background-color: aqua;">
+    <div style="display: flex; vertical-align: middle; justify-content: center; margin-top: 2cm;">
+      <label style="margin-right: 200px;"><b>Captured Data</b></label>
+      <label style="margin-left: 200px;"><b>Predicted Digit</b></label>
+    </div>
+    <div id="result" style="display: flex; vertical-align: middle; justify-content: center;">
+      <div>
+        <img src={{ url}} alt="Chart" height="274" width="274">
+        <img src="/static/arrow.jpg" height="274" width="274">
+      </div>
+      <div style="width: 274px; height: 274px;">
+        <h1 style="text-align: center; font-size: 230px; margin: auto;"><strong>{{ result }}</strong></h1>
+      </div>
     </div>
 
 
