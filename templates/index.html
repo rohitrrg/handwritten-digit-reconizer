@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='draw.js') }}"></script> -->
+    <title>Handwritten Digit Recognizer !</title>
+  </head>
+
+  <body onload="init()">
+    <h1 align="center">Handwritten Digit Recognizer</h1>
+    <br>
+    <form id="myForm" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+      <div style="display: flex; vertical-align: middle; justify-content: center;">
+        <canvas id="can" width="274" height="274" style="border: 5px solid;"></canvas>
+      </div>
+      <div style="display: flex; vertical-align: middle; justify-content: center; margin-top: 20px;">
+        <input type="hidden" id = 'url' name="url" value="">
+        <input id="clr" value="Clear" type="button" onclick="erase()" style="width: 100px; margin-right: 10px;">
+        <input type="submit" id = 'predict' value="Predict" onclick="return save();" style="width: 100px; margin-left: 10px;">
+      </div>
+    </form>
+
+    <script type="text/javascript">
+      var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+    var x = "#FF5733",
+        y = 7;
+    
+    function init() {
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+
+
+
+        w = canvas.width;
+        h = canvas.height;
+
+        
+    
+        canvas.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            findxy('down', e)
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+            findxy('up', e)
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+    }
+
+    function draw() {
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = x;
+        ctx.lineWidth = y;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+        ctx.closePath();
+    }
+    
+    function erase() {
+        ctx.clearRect(0, 0, w, h);
+        document.getElementById("canvasimg").style.display = "none";
+    }
+    
+    function findxy(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.offsetLeft;
+            currY = e.clientY - canvas.offsetTop;
+    
+            flag = true;
+            dot_flag = true;
+            if (dot_flag) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(currX, currY, 2, 2);
+                ctx.closePath();
+                dot_flag = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag = false;
+        }
+        if (res == 'move') {
+            if (flag) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.offsetLeft;
+                currY = e.clientY - canvas.offsetTop;
+                draw();
+            }
+        }
+    }
+function save() {
+        var image = new Image();
+        var url = document.getElementById('url');
+        image.id = "pic";
+        image.src = canvas.toDataURL();
+        url.value = image.src;
+    
+    }
+    </script>
+
+    <div>
+      <img src={{ url}} alt="Chart" height="274" width="274" style="background-color: aqua;">
+    </div>
+
+
+      
+
+  </body>
+</html>
