@@ -1,3 +1,1 @@
-# Handwritten Digit Recognizer
-
-<strong>Deployments<strong>
+<h1 align="center">Handwritten Digit Recognizer<h1>
