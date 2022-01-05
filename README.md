@@ -1,10 +1,13 @@
 <h1 align="center">Handwritten Digit Recognizer</h1>
 <strong>Link to the deployed project:</strong>
+
+https://user-images.githubusercontent.com/43450375/148155522-f410eb92-b0ac-4c89-b01a-a1b86df02ff2.mp4
+
+
 https://handwritten-digit-recognizer0.herokuapp.com/
 
 ![image](https://user-images.githubusercontent.com/43450375/148152402-59aeb861-ddc9-4228-96f5-8ef9a0607455.png)
 
-https://user-images.githubusercontent.com/43450375/148155153-ab4303b8-be54-49b9-b474-6919e5464e28.mp4
 
 
 
