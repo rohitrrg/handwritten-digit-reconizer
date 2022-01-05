@@ -13,8 +13,8 @@ https://handwritten-digit-recognizer0.herokuapp.com/
 - pickle
 - Flask
 - cv2
-- 
 
+<br>
 <h2>Dataset: </h2>
 The data files train.csv and test.csv contain gray-scale images of hand-drawn digits, from zero through nine.
 
