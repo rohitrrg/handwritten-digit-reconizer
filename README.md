@@ -5,14 +5,14 @@ https://handwritten-digit-recognizer0.herokuapp.com/
 ![image](https://user-images.githubusercontent.com/43450375/148152402-59aeb861-ddc9-4228-96f5-8ef9a0607455.png)
 
 <h2>Requirements: </h2>
-- Python3
-- scikit-learn
-- numpy
-- pandas
-- matplotlib
-- pickle
-- Flask
-- cv2
+  - Python3
+  - scikit-learn
+  - numpy
+  - pandas
+  - matplotlib
+  - pickle
+  - Flask
+  - cv2
 
 <br>
 <h2>Dataset: </h2>
