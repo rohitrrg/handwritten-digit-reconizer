@@ -9,7 +9,7 @@
     <title>Handwritten Digit Recognizer !</title>
   </head>
 
-  <body onload="init()">
+  <body onload="init()" style="background-color: rgb(245, 248, 250);">
     <h1 align="center">Handwritten Digit Recognizer</h1>
     <br>
     <form id="myForm" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
@@ -116,21 +116,22 @@ function save() {
     </script>
 
     <div style="display: flex; vertical-align: middle; justify-content: center; margin-top: 2cm;">
-      <label style="margin-right: 200px;"><b>Captured Data</b></label>
-      <label style="margin-left: 200px;"><b>Predicted Digit</b></label>
+      <!--<label style="margin-right: 200px;"><b>Captured Data</b></label>-->
+      <!--<label style="margin-left: 200px;"><b>Predicted Digit</b></label>-->
     </div>
     <div id="result" style="display: flex; vertical-align: middle; justify-content: center;">
       <div>
         <img src={{ url}} alt="Chart" height="274" width="274">
         <img src="/static/arrow.jpg" height="274" width="274">
       </div>
-      <div style="width: 274px; height: 274px;">
-        <h1 style="text-align: center; font-size: 230px; margin: auto;"><strong>{{ result }}</strong></h1>
+      <div style="height: 274px; margin-left: 1cm;">
+        <h3>RandomForest Classifier:    {{ ml_result }}</h3>
+        <h3>Artificial Neural Network:  {{ ann_result }}</h3>
+        <p>Predictions: {{ ann_probs[0] }}</p>
       </div>
     </div>
 
 
-      
 
   </body>
 </html>

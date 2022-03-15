@@ -5,3 +5,4 @@ opencv-contrib-python-headless
 pandas
 matplotlib
 sklearn
+keras
