@@ -6,14 +6,14 @@ import numpy as np
 import base64
 import matplotlib.pyplot as plt
 import pickle
-import keras
+import tensorflow.keras.models import load_model
 
 init_Base64 = 21
 
 with open('model_pkl', 'rb') as f:
     ml_model = pickle.load(f)
 
-ann_model = keras.models.load_model('my_keras_model.h5')
+ann_model = load_model('my_keras_model.h5')
 
 app = Flask(__name__)
 
