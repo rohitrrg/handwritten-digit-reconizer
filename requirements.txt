@@ -5,4 +5,4 @@ opencv-contrib-python-headless
 pandas
 matplotlib
 sklearn
-tensorflow==1.14.0
+keras
